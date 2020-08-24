@@ -36,6 +36,10 @@ client.on('message', (message) => {
 
   if(message.content == 'ping') {
     return message.reply('pong');
+  } 
+
+  if(message.content == '!초대코드') {
+    message.reply('http://promise.devteam.r-e.kr/')
   }
 
   if(message.content == '!si') {
@@ -73,20 +77,19 @@ client.on('message', (message) => {
     let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
     let embed = new Discord.RichEmbed()
       .setTitle('디스코드')
-      .setURL('https://discord.gg/psg43vb')
-      .setAuthor('PromiseDevTeam', img, 'https://discord.gg/psg43vb')
+      .setURL('http://promise.devteam.r-e.kr/')
+      .setAuthor('PromiseDevTeam', img, 'http://promise.devteam.r-e.kr/')
       .setThumbnail(img)
       .addBlankField()
-      .addField('Inline field title', 'Some value here')
-      .addField('Inline field title', 'Some value here', true)
-      .addField('Inline field title', 'Some value here', true)
+      .addField('마이닝님은 바보입니다', '사실 이치카가 더 바보')
+      .addField('인정하시죠', '인정하시면 당근을 흔들어주십쇼', true)
       .addBlankField()
       .setTimestamp()
       .setFooter('made by.LOOPY', img)
 
     message.channel.send(embed)
   } else if(message.content == '!help') {
-    let helpImg = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
+    let helpImg = 'https://media.discordapp.net/attachments/746880838355910786/747428828271345724/e89312ebd036e623.png?width=424&height=424';
     let commandList = [
       {name: '!help', desc: 'help'},
       {name: 'ping', desc: '현재 핑 상태'},
@@ -94,7 +97,7 @@ client.on('message', (message) => {
       {name: '!전체공지', desc: 'dm으로 전체 공지 보내기'},
       {name: '!전체디엠', desc: 'dm으로 전체 embed 형식으로 공지 보내기'},
       {name: '!청소', desc: '텍스트 지움'},
-      {name: '!초대코드', desc: '해당 채널의 초대 코드 표기'},
+      {name: '!초대코드', desc: '지정된 초대 코드 표기'},
       {name: '!초대코드2', desc: '봇이 들어가있는 모든 채널의 초대 코드 표기'},
     ];
     let commandStr = '';
@@ -123,19 +126,12 @@ client.on('message', (message) => {
           }
         })
     });
-  } else if(message.content == '!초대코드') {
+  } 
+
     if(message.channel.type == 'dm') {
       return message.reply('dm에서 사용할 수 없는 명령어 입니다.');
-    }
-    message.guild.channels.get(message.channel.id).createInvite({maxAge: 0}) // maxAge: 0은 무한이라는 의미, maxAge부분을 지우면 24시간으로 설정됨
-      .then(invite => {
-        message.channel.send(invite.url)
-      })
-      .catch((err) => {
-        if(err.code == 50013) {
-          message.channel.send('**'+message.guild.channels.get(message.channel.id).guild.name+'** 채널 권한이 없어 초대코드 발행 실패')
-        }
-      })
+    
+      
   } else if(message.content.startsWith('!전체디엠')) {
     if(checkPermission(message)) return
     if(message.member != null) { // 채널에서 공지 쓸 때
@@ -210,6 +206,7 @@ client.on('message', (message) => {
     }
   }
 });
+  
 
 function checkPermission(message) {
   if(!message.member.hasPermission("MANAGE_MESSAGES")) {
