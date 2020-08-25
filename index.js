@@ -10,7 +10,7 @@ const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '루피가 수정' }, status: 'online' })
+  client.user.setPresence({ game: { name: 'PROMISERP' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
@@ -38,7 +38,7 @@ client.on('message', (message) => {
   } 
 
   if(message.content == '!초대코드') {
-    message.reply('http://promise.devteam.r-e.kr/')
+    message.reply('http://promise.r-e.kr/')
   }
 
   if(message.content == '!userinfo') {
