@@ -49,10 +49,10 @@ client.on('message', (message) => {
     embed.setColor('9d1be8')
     embed.setFooter(`Promise Dev Team`)
     embed.addBlankField()
-    embed.addField('이름:', '${mentionedUser.username}')
-    embed.addField('ID:', '${mentionedUser.id}')
-    embed.addField('계정생성일:', '${mentionedUser.createdAt}')
-    embed.addField('서버 접속일:', '${mentionedMember.joinedAt}')
+    embed.addField('이름:', `${mentionedUser.username}`)
+    embed.addField('ID:', `${mentionedUser.id}`)
+    embed.addField('계정생성일:', `${mentionedUser.createdAt}`)
+    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`)
   }
 
   if(message.content == '!si') {
