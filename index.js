@@ -55,7 +55,7 @@ client.on('message', (message) => {
     embed.addField(`서버 접속일:`, `${mentionedMember.joinedAt}`);
 
     embed.setTimestamp()
-    message.channel.send(embed);
+    message.channel.send(embed)
   }
 
   if(message.content == '!si') {
