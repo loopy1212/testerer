@@ -42,8 +42,10 @@ client.on('message', (message) => {
   }
 
   if(message.content == '!userinfo') {
+    let mentionedMember = message.mentions.members.first();
+    let mentionedUser = message.mention.users.first();
     let embed = new Discord.RichEmbed()
-    let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
+    embed.setTitle('Userinformation')
     embed.setColor('9d1be8')
     embed.setFooter(`Promise Dev Team`)
     embed.addBlankField()
@@ -51,7 +53,6 @@ client.on('message', (message) => {
     embed.addField('ID:', '${mentionedUser.id}')
     embed.addField('계정생성일:', '${mentionedUser.createdAt}')
     embed.addField('서버 접속일:', '${mentionedMember.joinedAt}')
-    embed.addField('프로필:', '${mentionedUser.profile}')
   }
 
   if(message.content == '!si') {
