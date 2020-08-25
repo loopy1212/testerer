@@ -18,7 +18,7 @@ client.on("guildMemberAdd", (member) => {
   const newUser = member.user;
   const welcomeChannel = guild.channels.find(channel => channel.name == welcomeChannelName);
 
-  welcomeChannel.send(`<@${newUser.id}> ${welcomeChannelComment}\n`);
+  welcomeChannel.send(`<${newUser.id}> ${welcomeChannelComment}\n`);
 
   member.addRole(guild.roles.find(role => role.name == "게스트"));
 });
@@ -28,7 +28,6 @@ client.on("guildMemberRemove", (member) => {
   const deleteUser = member.user;
   const byeChannel = guild.channels.find(channel => channel.name == byeChannelName);
 
-  byeChannel.send(`<@${deleteUser.id}> ${byeChannelComment}\n`);
 });
 
 client.on('message', (message) => {
@@ -57,17 +56,6 @@ client.on('message', (message) => {
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     embed.addField('Discord.js',   `v${Discord.version}`, true);
     embed.addField('Node',         `${process.version}`, true);
-    
-    let arr = client.guilds.array();
-    let list = '';
-    list = `\`\`\`css\n`;
-    
-    for(let i=0;i<arr.length;i++) {
-      // list += `${arr[i].name} - ${arr[i].id}\n`
-      list += `${arr[i].name}\n`
-    }
-    list += `\`\`\`\n`
-    embed.addField('list:',        `${list}`);
 
     embed.setTimestamp()
     message.channel.send(embed);
