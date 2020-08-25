@@ -47,10 +47,10 @@ client.on('message', (message) => {
     let embed = new Discord.RichEmbed()
     embed.setTitle('Userinformation')
     embed.addBlankField()
-    embed.addField(`이름:`, `${mentionedUser.username}`)
-    embed.addField(`ID:`, `${mentionedUser.id}`)
-    embed.addField(`계정생성일:`, `${mentionedUser.createdAt}`)
-    embed.addField(`서버 접속일:`, `${mentionedMember.joinedAt}`);
+    embed.addField('이름:', `${mentionedUser.username}`)
+    embed.addField('ID:', `${mentionedUser.id}`)
+    embed.addField('계정생성일:', `${mentionedUser.createdAt}`)
+    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`);
 
     embed.setTimestamp()
     message.channel.send(embed)
