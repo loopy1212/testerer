@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = process.argv.length == 2 ? process.env.token : "";
+const token = process.argv.length == 2 ? process.env.token : "NzQ2NzI0NDc0NjUyNDU5MTM5.X0EfXA.pQ93B-30M6nO9GM8IwiNcK_R4Oo";
 const moment = require("moment");
 require("moment-duration-format");
 const welcomeChannelName = "안녕하세요";
@@ -10,7 +10,7 @@ const byeChannelComment = "안녕히가세요.";
 
 client.on('ready', () => {
   console.log('켰다.');
-  client.user.setPresence({ game: { name: '루피가 수정중' }, status: 'online' })
+  client.user.setPresence({ game: { name: '루피가 수정' }, status: 'online' })
 });
 
 client.on("guildMemberAdd", (member) => {
