@@ -40,33 +40,12 @@ client.on('message', (message) => {
   if(message.content == '!초대코드') {
     message.reply('http://promise.r-e.kr/')
   }
-
-  if(message.content == '!userinfo') {
-    let embed = new Discord.RichEmbed()
-    let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
-    let mentionedMember = message.mentions.members.first();
-    let mentionedUser = message.mention.users.first();
-    embed.setColor('#186de6')
-    embed.setAuthor('Promise Dev Team serverinfo', img)
-    embed.setFooter('PromiseDevTeam')
-    embed.addBlankField()
-    embed.addField('이름:', `${mentionedUser.username}`, true);
-    embed.addField('ID:', `${mentionedUser.id}`, true);
-    embed.addField('계정생성일:', `${mentionedUser.createdAt}`, true);
-    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`, true);
-
-    embed.setTimestamp()
-    message.channel.send(embed);
-  }
-
-  if(message.content == '!si') {
+  
+  if(message.content == 'botinfo') {
     let embed = new Discord.RichEmbed()
     let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
-    embed.setColor('#186de6')
-    embed.setAuthor('Promise Dev Team serverinfo', img)
-    embed.setFooter(`Promise Dev Team`)
-    embed.addBlankField()
+    embed.setTitle(`Userinformation for ${mentionedUser.username}`)
     embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
     embed.addField('running time', `${duration}`, true);
     embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
