@@ -41,7 +41,7 @@ client.on('message', (message) => {
     message.reply('http://promise.r-e.kr/')
   }
 
-  if(message.content == '!botinfo') {
+  if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
