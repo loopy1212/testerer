@@ -45,15 +45,15 @@ client.on('message', (message) => {
     let mentionedMember = message.mentions.members.first();
     let mentionedUser = message.mention.users.first();
     let embed = new Discord.RichEmbed()
-    embed.setTitle('Userinformation')
+    embed.setFooter('PromiseDevTeam')
     embed.addBlankField()
-    embed.addField('이름:', `${mentionedUser.username}`);
-    embed.addField('ID:', `${mentionedUser.id}`);
-    embed.addField('계정생성일:', `${mentionedUser.createdAt}`);
-    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`);
+    embed.addField('이름:', `${mentionedUser.username}`)
+    embed.addField('ID:', `${mentionedUser.id}`)
+    embed.addField('계정생성일:', `${mentionedUser.createdAt}`)
+    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`)
 
     embed.setTimestamp()
-    message.channel.send(embed);
+    message.channel.send(embed)
   }
 
   if(message.content == '!si') {
