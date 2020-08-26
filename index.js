@@ -42,15 +42,18 @@ client.on('message', (message) => {
   }
 
   if(message.content == '!userinfo') {
+    let embed = new Discord.RichEmbed()
+    let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
     let mentionedMember = message.mentions.members.first();
     let mentionedUser = message.mention.users.first();
-    let embed = new Discord.RichEmbed()
+    embed.setColor('#186de6')
+    embed.setAuthor('Promise Dev Team serverinfo', img)
     embed.setFooter('PromiseDevTeam')
     embed.addBlankField()
-    embed.addField('이름:', `${mentionedUser.username}`)
-    embed.addField('ID:', `${mentionedUser.id}`)
-    embed.addField('계정생성일:', `${mentionedUser.createdAt}`)
-    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`)
+    embed.addField('이름:', `${mentionedUser.username}`, true);
+    embed.addField('ID:', `${mentionedUser.id}`, true);
+    embed.addField('계정생성일:', `${mentionedUser.createdAt}`, true);
+    embed.addField('서버 접속일:', `${mentionedMember.joinedAt}`, true);
 
     embed.setTimestamp()
     message.channel.send(embed)
