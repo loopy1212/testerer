@@ -41,7 +41,7 @@ client.on('message', (message) => {
     message.reply('http://promise.r-e.kr/')
   }
 
-  if(message.content == '!bi') {
+  if(message.content == '!si') {
     let embed = new Discord.RichEmbed()
     let img = 'https://media.discordapp.net/attachments/746880838355910786/746921925577670686/d40f2b05690f8590.png?width=424&height=424';
     var duration = moment.duration(client.uptime).format(" D [일], H [시간], m [분], s [초]");
@@ -50,10 +50,10 @@ client.on('message', (message) => {
     embed.setFooter(`PromiseDevTeam`)
     embed.addBlankField()
     embed.setTitle(`Botinfo for ${mentionedUser.username}`)
-    embed.addField('RAM 사용량',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
-    embed.addField('업타임', `${duration}`, true);
-    embed.addField('사용자수',         `${client.users.size.toLocaleString()}`, true);
-    embed.addField('소속서버',       `${client.guilds.size.toLocaleString()}`, true);
+    embed.addField('RAM usage',    `${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB`, true);
+    embed.addField('running time', `${duration}`, true);
+    embed.addField('user',         `${client.users.size.toLocaleString()}`, true);
+    embed.addField('server',       `${client.guilds.size.toLocaleString()}`, true);
     // embed.addField('channel',      `${client.channels.size.toLocaleString()}`, true);
     embed.addField('Discord.js',   `v${Discord.version}`, true);
     embed.addField('Node',         `${process.version}`, true);
